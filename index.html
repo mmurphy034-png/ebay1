@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eBay Store Scraper DB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <main class="shell">
+      <section class="hero">
+        <article class="hero-copy">
+          <p class="eyebrow">Collector Tooling</p>
+          <h1>eBay store scraper with a browsable local database</h1>
+          <p class="hero-text">
+            Paste an eBay store URL, scrape the listing pages, and keep a searchable local inventory snapshot.
+          </p>
+        </article>
+
+        <article class="hero-panel">
+          <form id="scrapeForm" class="scrape-form">
+            <label>
+              <span>Store URL</span>
+              <input
+                id="storeUrl"
+                type="url"
+                placeholder="https://www.ebay.com/str/example-store"
+                required
+              />
+            </label>
+            <label>
+              <span>Max pages</span>
+              <input id="maxPages" type="number" min="1" max="20" value="3" />
+            </label>
+            <button type="submit">Scrape and Save</button>
+          </form>
+          <p id="statusMessage" class="status-message">Preparing scraper...</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <p class="eyebrow">Overview</p>
+          <h2>Database snapshot</h2>
+        </div>
+        <div id="summaryCards" class="summary-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-header filters-head">
+          <div>
+            <p class="eyebrow">Filters</p>
+            <h2>Find listings quickly</h2>
+          </div>
+          <div class="filters">
+            <input id="storeFilter" type="text" placeholder="Filter stores" />
+            <input id="searchInput" type="text" placeholder="Search title, item id, condition" />
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <div class="section-header">
+            <p class="eyebrow">Stores</p>
+            <h2>Captured snapshots</h2>
+          </div>
+          <div id="storeCards" class="store-grid"></div>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="section-header">
+            <p class="eyebrow">Listings</p>
+            <h2>Local store database</h2>
+          </div>
+          <div id="listingTable" class="listing-table"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
