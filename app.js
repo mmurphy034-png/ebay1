@@ -170,9 +170,13 @@ function renderListings(stores) {
             <div class="listing-cell listing-main">
               <img class="listing-image" src="${escapeHtml(listing.imageUrl || "")}" alt="" />
               <div>
-                <a class="listing-link" href="${escapeHtml(listing.itemUrl)}" target="_blank" rel="noreferrer">
-                  ${escapeHtml(listing.title)}
-                </a>
+                ${
+                  listing.itemUrl
+                    ? `<a class="listing-link" href="${escapeHtml(listing.itemUrl)}" target="_blank" rel="noreferrer">
+                         ${escapeHtml(listing.title)}
+                       </a>`
+                    : `<span class="listing-link">${escapeHtml(listing.title)}</span>`
+                }
                 <p class="listing-subtle">Item ID: ${escapeHtml(listing.itemId || "--")}</p>
               </div>
             </div>
